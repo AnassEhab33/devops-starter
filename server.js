@@ -12,7 +12,11 @@ app.get('/', (req, res) => {
     });
 });
 
-// Start the server
-app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}`);
-});
+// Start the server only if this file is run directly
+if (require.main === module) {
+    app.listen(port, () => {
+        console.log(`Server is running at http://localhost:${port}`);
+    });
+}
+
+module.exports = app;

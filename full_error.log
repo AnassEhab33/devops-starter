@@ -1,0 +1,44 @@
+
+> devops-starter@1.0.0 test
+> jest
+
+
+  ΓùÅ  Cannot log after tests are done. Did you forget to wait for something async in your test?
+    Attempted to log "Server is running at http://localhost:3000".
+
+      15 | // Start the server
+      16 | app.listen(port, () => {
+    > 17 |     console.log(`Server is running at http://localhost:${port}`);
+         |           ^
+      18 | });
+
+      at console.log (node_modules/@jest/console/build/index.js:311:10)
+      at Server.<anonymous> (server.js:17:11)
+      at Server.f (node_modules/once/once.js:25:25)
+
+FAIL ./server.test.js
+  GET /
+    ├ù should return 200 OK and a JSON message (3 ms)
+
+  ΓùÅ GET / ΓÇ║ should return 200 OK and a JSON message
+
+    TypeError: app.address is not a function
+
+      4 | describe('GET /', () => {
+      5 |     it('should return 200 OK and a JSON message', async () => {
+    > 6 |         const res = await request(app).get('/');
+        |                                        ^
+      7 |
+      8 |         // 1. Check the Status Code
+      9 |         expect(res.statusCode).toEqual(200);
+
+      at Test.serverAddress (node_modules/supertest/lib/test.js:61:22)
+      at new Test (node_modules/supertest/lib/test.js:49:14)
+      at Object.obj.<computed> [as get] (node_modules/supertest/index.js:39:18)
+      at Object.get (server.test.js:6:40)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        0.655 s, estimated 1 s
+Ran all test suites.
