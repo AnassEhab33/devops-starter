@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+
+# Environment variables (security risk to commit these!)
+.env
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Mac system files
+.DS_Store
