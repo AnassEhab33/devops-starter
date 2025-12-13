@@ -7,7 +7,7 @@ app.get('/', (req, res) => {
     // .json() automatically sets the Content-Type header to application/json
     res.json({
         status: 'success',
-        message: 'Hello! This is a ANASS response.',
+        message: 'Hello! This is a Bombo response.',
         timestamp: new Date()
     });
 });
