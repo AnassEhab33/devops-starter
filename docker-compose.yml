@@ -1,0 +1,21 @@
+services:
+  # My Node.js application
+  app:
+    build: . # Build from Dockerfile
+    ports:
+      - "3000:3000" # Map port 3000
+    environment:
+      - DATABASE_URL=postgres://postgres:password@db:5432/devops
+    depends_on:
+      - db # Start db first!
+  # PostgreSQL database
+  db:
+    image: postgres:15-alpine # Use official PostgreSQL
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=devops
+    volumes:
+      - pgdata:/var/lib/postgresql/data # Persist data!
+volumes:
+  pgdata: # Named volume for database persistence
