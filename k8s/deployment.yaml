@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-starter
+spec:
+  replicas: 3                    # Run 3 copies!
+  selector:
+    matchLabels:
+      app: devops-starter
+  template:
+    metadata:
+      labels:
+        app: devops-starter
+    spec:
+      containers:
+      - name: devops-starter
+        image: anassehab33/devops-starter:latest
+        ports:
+        - containerPort: 3000

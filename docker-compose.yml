@@ -8,7 +8,7 @@ services:
       - DATABASE_URL=postgres://postgres:password@db:5432/devops
     depends_on:
       - db # Start db first!
-  # PostgreSQL database
+  # PostgreSQL database 
   db:
     image: postgres:15-alpine # Use official PostgreSQL
     environment:
