@@ -13,7 +13,7 @@ pipeline {
     }
     post {
         success {
-           echo "Pipeline passed !!!! :) " 
+           echo "Pipeline passed !!!! Yessss !!!! :) " 
         }
         failure {
             echo "Pipeline failed :(" 
