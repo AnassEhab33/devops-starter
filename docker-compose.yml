@@ -8,6 +8,9 @@ services:
       - DATABASE_URL=postgres://postgres:password@db:5432/devops
     depends_on:
       - db # Start db first!
+    volumes:
+      - .:/app
+      - /app/node_modules
   # PostgreSQL database 
   db:
     image: postgres:15-alpine # Use official PostgreSQL
