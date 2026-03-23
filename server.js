@@ -4,10 +4,10 @@ const { Pool } = require('pg');   // NEW: PostgreSQL client
 const app = express();
 const port = process.env.PORT || 3000;
 
-// NEW: Database connection
-const pool = new Pool({
-    connectionString: process.env.DATABASE_URL
-});
+// NEW: Database connection (only connect if DATABASE_URL is set)
+const pool = process.env.DATABASE_URL
+    ? new Pool({ connectionString: process.env.DATABASE_URL })
+    : null;
 
 
 // Define a route that returns JSON
@@ -22,6 +22,12 @@ app.get('/', (req, res) => {
 
 // NEW: Database health check route
 app.get('/db', async (req, res) => {
+    if (!pool) {
+        return res.status(500).json({
+            status: 'error',
+            message: 'DATABASE_URL not configured'
+        });
+    }
     try {
         const result = await pool.query('SELECT NOW()');
         res.json({
@@ -44,4 +50,4 @@ if (require.main === module) {
     });
 }
 
-module.exports = app;
+module.exports = { app, pool };
