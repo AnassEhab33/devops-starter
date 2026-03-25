@@ -1,0 +1,21 @@
+{
+  "family": "devops-starter",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::363191779124:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "devops-starter",
+      "image": "363191779124.dkr.ecr.us-east-1.amazonaws.com/devops-starter:latest",
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true
+    }
+  ]
+}

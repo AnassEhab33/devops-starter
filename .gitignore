@@ -1,8 +1,14 @@
 # Dependencies
 node_modules/
-docs/
+
 # Environment variables (security risk to commit these!)
 .env
+
+# Terraform internal files (don't commit these!)
+.terraform/
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
 
 # Windows system files
 Thumbs.db

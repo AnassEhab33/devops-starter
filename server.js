@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
     // .json() automatically sets the Content-Type header to application/json
     res.json({
         status: 'success',
-        message: 'Hello! This is a Anass Einshouka Elgamed response.',
+        message: 'Hello! This is Anass El gamed response',
         timestamp: new Date()
     });
 });
