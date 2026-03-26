@@ -17,7 +17,10 @@ describe('GET /', () => {
     });
 });
 
-describe('GET /db', () => {
+// Only test /db when DATABASE_URL is set (database is available)
+const dbTest = process.env.DATABASE_URL ? describe : describe.skip;
+
+dbTest('GET /db', () => {
     it('should return 200 OK and a JSON message', async () => {
         const res = await request(app).get('/db');
 
